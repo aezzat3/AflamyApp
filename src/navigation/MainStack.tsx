@@ -2,9 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Splash from '../screens/Splash';
 import styles from './styles';
+import MoviesList from '../screens/MoviesList';
 
 export type MainStackParams = {
   Splash: undefined;
+  MoviesList: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParams>();
@@ -19,5 +21,7 @@ export default () => (
       headerBackTitle: '',
     }}>
     <MainStack.Screen component={Splash} name="Splash" options={{ headerShown: false }} />
+    <MainStack.Screen component={MoviesList} name="MoviesList" options={{ title: 'Movies' }} />
+
   </MainStack.Navigator>
 );
