@@ -2,6 +2,9 @@
 #import "React/RCTBridgeModule.h"
 #import "AFNetworking/AFHTTPSessionManager.h"
 
+static NSString *globalBaseUrl = @"";
+static NSString *globalApiKey = @"";
+
 @interface MovieApiModule : NSObject <RCTBridgeModule>
 @end
 
@@ -9,9 +12,23 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(fetchMoviesList:(NSString *)filter page:(NSInteger)page resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(setBaseUrl:(NSString *)baseUrl)
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@?api_key=f96ebd89c24a7d02a571f92793888b5a&page=%ld", filter, (long)page];
+    globalBaseUrl = baseUrl;
+}
+
+RCT_EXPORT_METHOD(setApiKey:(NSString *)apiKey)
+{
+    globalApiKey = apiKey;
+}
+
+RCT_EXPORT_METHOD(fetchMoviesList:(NSString *)filter
+                  page:(NSInteger)page
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/movie/%@?api_key=%@&page=%ld",
+                           globalBaseUrl, filter, globalApiKey, (long)page];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:urlString
@@ -25,9 +42,11 @@ RCT_EXPORT_METHOD(fetchMoviesList:(NSString *)filter page:(NSInteger)page resolv
          }];
 }
 
-RCT_EXPORT_METHOD(fetchGenres:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(fetchGenres:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSString *urlString = @"https://api.themoviedb.org/3/genre/movie/list?api_key=f96ebd89c24a7d02a571f92793888b5a";
+    NSString *urlString = [NSString stringWithFormat:@"%@/genre/movie/list?api_key=%@",
+                           globalBaseUrl, globalApiKey];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:urlString
@@ -41,9 +60,12 @@ RCT_EXPORT_METHOD(fetchGenres:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromi
          }];
 }
 
-RCT_EXPORT_METHOD(fetchCredits:(NSInteger)movieId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(fetchCredits:(NSInteger)movieId
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%ld/credits?api_key=f96ebd89c24a7d02a571f92793888b5a", (long)movieId];
+    NSString *urlString = [NSString stringWithFormat:@"%@/movie/%ld/credits?api_key=%@",
+                           globalBaseUrl, (long)movieId, globalApiKey];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:urlString

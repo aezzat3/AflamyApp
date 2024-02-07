@@ -46,3 +46,8 @@ export interface CacheAdapter {
   write: (key: string, value: any) => Promise<void>;
   invalidate: (key: string) => Promise<void>;
 }
+
+export interface FetchMoviesParams {
+  filter: MoviesFilter;
+  page: number;
+}
