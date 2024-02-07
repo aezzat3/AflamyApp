@@ -39,6 +39,9 @@ target 'MovieApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Add AFNetworking to your Podfile
+  pod 'AFNetworking', '~> 4.0'
+
   target 'MovieAppTests' do
     inherit! :complete
     # Pods for testing
