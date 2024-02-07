@@ -41,3 +41,8 @@ export interface CreditResponse {
   cast: Cast[];
 }
 
+export interface CacheAdapter {
+  read: (key: string) => Promise<any>;
+  write: (key: string, value: any) => Promise<void>;
+  invalidate: (key: string) => Promise<void>;
+}

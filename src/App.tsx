@@ -1,12 +1,12 @@
 import React from 'react';
 import Navigation from './navigation';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from './hooks/useQueryClient';
 
-const client = new QueryClient();
 
 const App = () => {
   return (
-    <QueryClientProvider client={client}>
+    <QueryClientProvider client={queryClient}>
       <Navigation />
     </QueryClientProvider>
   );
