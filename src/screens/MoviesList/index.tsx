@@ -9,6 +9,7 @@ import { MainStackParams } from '../../navigation/MainStack';
 import { fetchGenres, fetchMoviesList } from '../../services';
 import { GenresResponse, Movie, MoviesFilter, MoviesResponse } from '../../utils/types';
 import styles from './styles';
+import ErrorComponent from '../../components/ErrorComponent';
 
 const MoviesList = () => {
   const navigation = useNavigation<NavigationProp<MainStackParams>>();
@@ -57,7 +58,7 @@ const MoviesList = () => {
     return <Spinner />;
   }
   if (error || genresError) {
-    return <Text>Something went Wrong ...!</Text>;
+    return <ErrorComponent />
   }
 
   return (
