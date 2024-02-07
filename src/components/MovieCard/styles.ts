@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../common';
 
 export default StyleSheet.create({
   card: {
     padding: 10,
     flexDirection: 'row',
-    backgroundColor: '#FFFF',
+    backgroundColor: COLORS.white,
     width: '100%',
-    shadowColor: '#000',
+    shadowColor: COLORS.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -29,12 +30,12 @@ export default StyleSheet.create({
   },
   title: {
     marginBottom: 10,
-    color: '#000',
+    color: COLORS.dark,
     fontWeight: 'bold',
     fontSize: 14,
   },
   date: {
-    color: '#0000',
+    color: COLORS.gray,
     fontSize: 12,
     marginBottom: 10,
   },
@@ -42,7 +43,7 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     right: 0,
-    color:'green',
+    color: COLORS.green,
     fontWeight: 'bold',
   },
 });

@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { COLORS } from '../../common';
 
 const { width } = Dimensions.get('screen');
 const buttonWidth = (width - 80) / 3;
@@ -14,17 +15,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: buttonWidth,
-    backgroundColor: '#0000',
+    backgroundColor: COLORS.light_gray,
     borderRadius: 20,
   },
   selectedButton: {
-    backgroundColor: 'green',
+    backgroundColor: COLORS.green,
   },
   text: {
     fontWeight: 'bold',
     fontSize: 13,
   },
   selectedText: {
-    color: '#FFFF',
+    color: COLORS.white,
   },
 });
