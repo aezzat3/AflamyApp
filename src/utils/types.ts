@@ -30,3 +30,14 @@ export interface GenresResponse {
   genres: Genre[];
 }
 
+export interface Cast {
+  id: number;
+  name: string;
+  profile_path: string;
+}
+
+export interface CreditResponse {
+  id: number;
+  cast: Cast[];
+}
+
