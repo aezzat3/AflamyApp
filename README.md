@@ -1,26 +1,4 @@
-MovieApp
-
-https://github.com/aezzat3/MoviesApp/assets/61430379/879866fe-1f76-4e77-8b52-81d8dc28fde8
-
-## Used API's
-
-I am using API provided by
-https://developers.themoviedb.org/3
-
- - Upcomming Movies  : `${BASE_URL}/movie/upcomming?api_key=${API_KEY}&page=${page}`
- - Top Rated Movies : `${BASE_URL}L/movie/top_rated?api_key=${API_KEY}&page=${page}`
- - Popular Movies : `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${page}`
- - Genres : `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
- - Credits : `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
-    `
-
-
-## Main technologies used
-
-- React Native
-- Typescript
-- React Navigation (v5)
-- React Query
+Movies App
 
 ## Main functionality
 
@@ -85,11 +63,4 @@ You will need to make one more step to install pods dependencies, run the follow
 ```
 
 Also I am using `eslint` and prettier for better code formatting alongside [husky hooks](https://github.com/typicode/husky) to apply linting and formatting before each commit
-
-## Screenshots
-<p float='left'>
-<img src="https://github.com/aezzat3/MoviesApp/assets/61430379/9cfd5ff6-4bab-453a-b2f1-b0bcf89570ec" height="500" />
-<img src="https://github.com/aezzat3/MoviesApp/assets/61430379/4567fd2f-5150-4dab-bb74-e3128934c2de" height="500" />
-<img src="https://github.com/aezzat3/MoviesApp/assets/61430379/b994de27-a1b1-47b2-9186-1df2785950cb" height="500" />
-<p/>
 
